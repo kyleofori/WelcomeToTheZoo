@@ -41,13 +41,16 @@ public class ZooMaker {
     }
 
     public void setUpNewPen(Zoo zoo) {
-        Scanner userInput = new Scanner(System.in);
-        System.out.println("What species of animal will this pen hold?");
-        String species = userInput.nextLine();
         Pen emptyPen = new Pen();
         zoo.getAllZooPens().add(emptyPen);
-        System.out.println("You now have a new pen!\n\n\n");
-        System.out.println("There are "+"pens in the Royal Oak Zoo.");
+        System.out.println("You now have a new pen!\n");
+        int count = 0;
+        for(Pen x: zoo.getAllZooPens())
+        {
+            if(x != null)
+                count++;
+        }
+        System.out.println("There are "+count+" pens in the Royal Oak Zoo.\n");
     }
 
     public void removePen() {

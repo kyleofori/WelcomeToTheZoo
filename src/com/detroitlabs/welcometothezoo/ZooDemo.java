@@ -11,7 +11,6 @@ public class ZooDemo {
 
         Zoo ROZoo = new Zoo();
         ZooMaker ROZooMaker = new ZooMaker();
-        Pen emptyPen = new Pen();
 
         int selection = 0;
         System.out.println("Welcome to the Royal Oak Zoo!");
@@ -29,7 +28,7 @@ public class ZooDemo {
         switch (selection) {
             case 1:
                 //set up new pen using ROZoo as the zoo argument and initializing a pen for whatever type of animal user wants
-                ROZooMaker.setUpNewPen(ROZoo, emptyPen);
+                ROZooMaker.setUpNewPen(ROZoo);
                 break;
             case 2:
                 //remove pens

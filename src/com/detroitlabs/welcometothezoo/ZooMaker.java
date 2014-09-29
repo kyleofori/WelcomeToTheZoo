@@ -53,27 +53,39 @@ public class ZooMaker {
         System.out.println("There are "+count+" pens in the Royal Oak Zoo.\n");
     }
 
-    public void removePen() {
+    public void removePen() { //this will only remove empty pens...I suppose
         System.out.println("This function doesn't work yet.");
     }
 
-    public void addAnimalToPen() {
+    public void addAnimalToPen(Zoo zoo, Animal newAnimal) {
+        //Assume first that this is animal does not yet exist in the zoo
+        int x = 0;
+        if(zoo.getAllZooPens().get(x) != null)
+            x++; //Passing-by-value? Will to increase outside of this if statement? This isn't a method, so I think it will.
+        zoo.getAllZooPens().get(x); //I want the first empty pen
         System.out.println("This function doesn't work yet.");
     }
 
-    public void addBabyAnimalToPen() {
+    public void addBabyAnimalToPen(BabyAnimal newBabyAnimal) {
+        //same assumptions as for addAnimalToPen
         System.out.println("This function doesn't work yet.");
     }
 
     public void removeFromPen() {
         System.out.println("This function doesn't work yet.");
+        //select type of animal (leads to pen), then animal from within ROZoo
+        //ask "do you want to remove this creature"
+        //use the getIntInRange: 1 to remove, 0 to not
     }
 
     public void displayAllAnimalsInPen() {
+        //select a pen first
+        //list each animal with a number. I might have to give these animals names for this to work.
         System.out.println("This function doesn't work yet.");
     }
 
     public void displayAllAnimalsInROZ() {
+        //displayAllAnimalsInPen for each pen
         System.out.println("This function doesn't work yet.");
     }
 

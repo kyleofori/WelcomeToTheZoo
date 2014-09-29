@@ -7,11 +7,13 @@ public class Animal {
     private double size;
     private String gender;
     private String species;
+    private String name;
 
     public Animal(double size, String gender, String species) {
         this.size = size;
         this.gender = gender;
         this.species = species;
+        this.name = name;
     }
 
     public void setSize(double size) {
@@ -36,5 +38,13 @@ public class Animal {
 
     public String getSpecies() {
         return species;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

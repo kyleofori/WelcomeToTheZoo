@@ -10,7 +10,7 @@ public class BabyAnimal extends Animal {
     private String cuteness;
 
     public BabyAnimal(double size, String gender, String species, String cuteness) {
-        super(size, gender, species);
+        super(size, gender, species, name);
         this.cuteness = cuteness;
     }
 

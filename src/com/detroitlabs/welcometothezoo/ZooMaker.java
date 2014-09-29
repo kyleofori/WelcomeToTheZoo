@@ -65,40 +65,27 @@ public class ZooMaker {
 
     public void addAnimalToPen(Zoo zoo) {
         //Assume first that this is animal does not yet exist in the zoo
-        int x = 0;
-//        if(zoo.getAllZooPens().get(x) != null)
-//        {
-//            x++; //Passing-by-value? Will to increase outside of this if statement? This isn't a method, so I think it will.
-//            //get info about new animal
-//        }
-        System.out.println(x);
-        Scanner zooScanner = new Scanner(System.in);
-        System.out.println("How big is this new animal?");
-        try
-        {
-            double size = zooScanner.nextDouble();
-            zooScanner.nextLine();
-            if (size <= 0)
-            {
-                System.out.println("Please enter a positive number.");
-                //then DO SOMETHING ABOUT IT
-            }
-        }
 
-        catch (InputMismatchException e)
-        {
-            System.out.println("Please enter a positive number.");
-        }
+        Scanner zooScanner = new Scanner(System.in);
+        System.out.println("How big is this new animal? (Please use inches.)");
+        double size = getASize();
         System.out.println("What gender is this new animal?");
         String gender = zooScanner.nextLine();
         System.out.println("What species is this new animal?");
         String species = zooScanner.nextLine();
         System.out.println("Finally, what's this creature's name?");
         String name = zooScanner.nextLine();
-        Animal newAnimal = new Animal(12, gender, species, name);
+        Animal newAnimal = new Animal(size, gender, species, name);
         zoo.getAllZooPens().get(x).getZooAnimals().add(newAnimal); //I want the first empty pen
 
         displayAnimalInfo(newAnimal);
+
+        ArrayList<Pen> lezoo = zoo.getAllZooPens();
+        Pen theOnlyPenThusFar = lezoo.get(0);
+        for(Animal a: theOnlyPenThusFar.getZooAnimals()) {
+            System.out.println(name);
+        }
+
     }
 
     public void addBabyAnimalToPen(BabyAnimal newBabyAnimal) {
@@ -128,6 +115,22 @@ public class ZooMaker {
         System.out.println(animal.getName()+" is a "+animal.getSize()+"-inch long "+animal.getGender()+" "+
                 animal.getSpecies()+".");
     }
+
+    public double getASize() {
+            Scanner sizeScanner = new Scanner(System.in);
+            try {
+                double userInput = sizeScanner.nextDouble();
+                sizeScanner.nextLine();
+                if (userInput <= 0) {
+                    System.out.println("Please enter a positive number.");
+                    getASize();
+                }
+                return userInput;
+            }
+            catch (InputMismatchException e) {
+                System.out.println("Please enter a positive number.");
+                getASize();
+            }
     //MVP: Only remove one animal or baby animal at a time.
     //MVP: Only add one animal or baby animal at a time.
     //MVP: Only set up one new pen at a time.

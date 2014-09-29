@@ -8,11 +8,14 @@ import java.util.Scanner;
 public class ZooDemo {
     public static void main(String[] args) {
 
+        Zoo ROZoo = new Zoo();
         ZooMaker ROZooMaker = new ZooMaker();
 
-        ROZooMaker.showZooMenu();
-
-        int selection = ROZooMaker.getIntegerInRange(1, 8);
+        int selection = 0;
+        do {
+            ROZooMaker.showZooMenu();
+            selection = ROZooMaker.getIntegerInRange(1, 8);
+        } while (selection == 0);
 
         do
         {

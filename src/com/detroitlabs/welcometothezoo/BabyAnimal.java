@@ -13,4 +13,12 @@ public class BabyAnimal extends Animal {
         super(size, gender, species);
         this.cuteness = cuteness;
     }
+
+    public void setCuteness(String cuteness) {
+        this.cuteness = cuteness;
+    }
+
+    public String getCuteness() {
+        return cuteness;
+    }
 }

@@ -1,5 +1,6 @@
 package com.detroitlabs.welcometothezoo;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -32,12 +33,44 @@ public class ZooMaker {
                 taskType = taskTypeScannerInput;
             } else {
                 System.out.println("Sorry, your input is invalid.");
-                //whatever method asked the question. That method should contain gIIR.
             }
         } catch (InputMismatchException e) {
-            //whatever method asked the question
+            System.out.println("Sorry, your input is invalid.");
         }
         return taskType;
+    }
+
+    public void setUpNewPen() {
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("What species of animal will this pen hold?");
+        String species = userInput.nextLine();
+        System.out.println("You now have a pen that can hold animals of the species "+species+", either full-grown or baby.");
+        Zoo.getAllZooPens().add()
+
+    }
+
+    public void removePen() {
+
+    }
+
+    public void addAnimalToPen() {
+
+    }
+
+    public void addBabyAnimalToPen() {
+
+    }
+
+    public void removeFromPen() {
+
+    }
+
+    public void displayAllAnimalsInPen() {
+
+    }
+
+    public void displayAllAnimalsInROZ() {
+
     }
 
     //MVP: Only remove one animal or baby animal at a time.

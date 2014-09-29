@@ -13,4 +13,28 @@ public class Animal {
         this.gender = gender;
         this.species = species;
     }
+
+    public void setSize(double size) {
+        this.size = size;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public double getSize() {
+        return size;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
 }

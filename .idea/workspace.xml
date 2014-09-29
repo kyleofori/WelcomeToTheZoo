@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18f3bd20-f660-48d2-98c7-a27126fd6c8d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/Animal.java" afterPath="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/Animal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/BabyAnimal.java" afterPath="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/BabyAnimal.java" />
-    </list>
+    <list default="true" id="18f3bd20-f660-48d2-98c7-a27126fd6c8d" name="Default" comment="" />
     <ignored path="WelcomeToTheZoo.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />

@@ -40,14 +40,14 @@ public class ZooMaker {
         return taskType;
     }
 
-    public void setUpNewPen(Zoo zoo, Pen pen) {
+    public void setUpNewPen(Zoo zoo) {
         Scanner userInput = new Scanner(System.in);
         System.out.println("What species of animal will this pen hold?");
         String species = userInput.nextLine();
-        //make a new pen
-        //add it in the next line
-        zoo.getAllZooPens().add(pen);
+        Pen emptyPen = new Pen();
+        zoo.getAllZooPens().add(emptyPen);
         System.out.println("You now have a new pen!\n\n\n");
+        System.out.println("There are "+"pens in the Royal Oak Zoo.");
     }
 
     public void removePen() {

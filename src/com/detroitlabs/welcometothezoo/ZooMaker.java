@@ -41,20 +41,18 @@ public class ZooMaker {
     }
 
     public void setUpNewPen(Zoo zoo) {
-        Pen emptyPen = new Pen();
+        Pen emptyPen = new Pen("nothing so far");
+
         zoo.getAllZooPens().add(emptyPen);
         System.out.println("You now have a new pen!\n");
         int count = 0;
-        for(Pen x: zoo.getAllZooPens())
-        {
-            if(x != null)
+        for (Pen x : zoo.getAllZooPens()) {
+            if (x != null)
                 count++;
         }
-        if(count == 1) {
-            System.out.println("There is "+count+" pen in the Royal Oak Zoo.\n");
-        }
-        else
-        {
+        if (count == 1) {
+            System.out.println("There is " + count + " pen in the Royal Oak Zoo.\n");
+        } else {
             System.out.println("There are " + count + " pens in the Royal Oak Zoo.\n");
         }
     }
@@ -65,7 +63,6 @@ public class ZooMaker {
 
     public void addAnimalToPen(Zoo zoo) {
         //Assume first that this is animal does not yet exist in the zoo
-
         Scanner zooScanner = new Scanner(System.in);
         System.out.println("How big is this new animal? (Please use inches.)");
         double size = getASize();
@@ -82,7 +79,7 @@ public class ZooMaker {
 
         ArrayList<Pen> lezoo = zoo.getAllZooPens();
         Pen theOnlyPenThusFar = lezoo.get(0);
-        for(Animal a: theOnlyPenThusFar.getZooAnimals()) {
+        for (Animal a : theOnlyPenThusFar.getZooAnimals()) {
             System.out.println(name);
         }
 
@@ -112,27 +109,30 @@ public class ZooMaker {
     }
 
     public void displayAnimalInfo(Animal animal) {
-        System.out.println(animal.getName()+" is a "+animal.getSize()+"-inch long "+animal.getGender()+" "+
-                animal.getSpecies()+".");
+        System.out.println(animal.getName() + " is a " + animal.getSize() + "-inch long " + animal.getGender() + " " +
+                animal.getSpecies() + ".");
     }
 
     public double getASize() {
-            Scanner sizeScanner = new Scanner(System.in);
-            try {
-                double userInput = sizeScanner.nextDouble();
-                sizeScanner.nextLine();
-                if (userInput <= 0) {
-                    System.out.println("Please enter a positive number.");
-                    getASize();
-                }
-                return userInput;
-            }
-            catch (InputMismatchException e) {
+        Scanner sizeScanner = new Scanner(System.in);
+        double userInput = 0;
+        try {
+            userInput = sizeScanner.nextDouble();
+            sizeScanner.nextLine();
+            if (userInput <= 0) {
                 System.out.println("Please enter a positive number.");
                 getASize();
             }
-    //MVP: Only remove one animal or baby animal at a time.
-    //MVP: Only add one animal or baby animal at a time.
-    //MVP: Only set up one new pen at a time.
-    //MVP: Only remove one pen at a time.
+            return userInput;
+        } catch (InputMismatchException e) {
+            System.out.println("Please enter a positive number.");
+            getASize();
+        }
+        return userInput;
+    }
 }
+
+//MVP: Only remove one animal or baby animal at a time.
+//MVP: Only add one animal or baby animal at a time.
+//MVP: Only set up one new pen at a time.
+//MVP: Only remove one pen at a time.

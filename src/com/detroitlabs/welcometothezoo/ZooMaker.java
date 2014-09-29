@@ -98,8 +98,7 @@ public class ZooMaker {
         Animal newAnimal = new Animal(12, gender, species, name);
         zoo.getAllZooPens().get(x).getZooAnimals().add(newAnimal); //I want the first empty pen
 
-        System.out.println(newAnimal.getName()+" is a "+newAnimal.getSize()+"-inch long "+newAnimal.getGender()+" "+
-                newAnimal.getSpecies()+".");
+        displayAnimalInfo(newAnimal);
     }
 
     public void addBabyAnimalToPen(BabyAnimal newBabyAnimal) {
@@ -125,6 +124,10 @@ public class ZooMaker {
         System.out.println("This function doesn't work yet.");
     }
 
+    public void displayAnimalInfo(Animal animal) {
+        System.out.println(animal.getName()+" is a "+animal.getSize()+"-inch long "+animal.getGender()+" "+
+                animal.getSpecies()+".");
+    }
     //MVP: Only remove one animal or baby animal at a time.
     //MVP: Only add one animal or baby animal at a time.
     //MVP: Only set up one new pen at a time.

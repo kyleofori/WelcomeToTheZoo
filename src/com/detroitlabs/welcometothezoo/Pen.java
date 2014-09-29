@@ -7,6 +7,6 @@ import java.util.ArrayList;
  */
 public class Pen {
     ArrayList<Animal> ZooAnimals = new ArrayList<Animal>();
-    
+
     ArrayList<BabyAnimal> BabyZooAnimals = new ArrayList<BabyAnimal>();
 }

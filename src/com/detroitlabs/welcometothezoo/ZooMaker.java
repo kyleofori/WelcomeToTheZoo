@@ -50,24 +50,34 @@ public class ZooMaker {
             if(x != null)
                 count++;
         }
-        System.out.println("There are "+count+" pens in the Royal Oak Zoo.\n");
+        if(count == 1) {
+            System.out.println("There is "+count+" pen in the Royal Oak Zoo.\n");
+        }
+        else
+        {
+            System.out.println("There are " + count + " pens in the Royal Oak Zoo.\n");
+        }
     }
 
     public void removePen() { //this will only remove empty pens...I suppose
         System.out.println("This function doesn't work yet.");
     }
 
-    public void addAnimalToPen(Zoo zoo, Animal newAnimal) {
+    public void addAnimalToPen(Zoo zoo) {
         //Assume first that this is animal does not yet exist in the zoo
         int x = 0;
-        if(zoo.getAllZooPens().get(x) != null)
-            x++; //Passing-by-value? Will to increase outside of this if statement? This isn't a method, so I think it will.
-        //get info about new animal
+//        if(zoo.getAllZooPens().get(x) != null)
+//        {
+//            x++; //Passing-by-value? Will to increase outside of this if statement? This isn't a method, so I think it will.
+//            //get info about new animal
+//        }
+        System.out.println(x);
         Scanner zooScanner = new Scanner(System.in);
         System.out.println("How big is this new animal?");
         try
         {
             double size = zooScanner.nextDouble();
+            zooScanner.nextLine();
             if (size <= 0)
             {
                 System.out.println("Please enter a positive number.");
@@ -85,9 +95,8 @@ public class ZooMaker {
         String species = zooScanner.nextLine();
         System.out.println("Finally, what's this creature's name?");
         String name = zooScanner.nextLine();
+        Animal newAnimal = new Animal(12, gender, species, name);
         zoo.getAllZooPens().get(x).getZooAnimals().add(newAnimal); //I want the first empty pen
-
-        System.out.println("This function doesn't work yet.");
     }
 
     public void addBabyAnimalToPen(BabyAnimal newBabyAnimal) {

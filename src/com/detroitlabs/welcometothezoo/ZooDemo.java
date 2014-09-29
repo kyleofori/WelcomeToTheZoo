@@ -36,7 +36,7 @@ public class ZooDemo {
                 break;
             case 3:
                 //add an animal to a pen
-//                ROZooMaker.addAnimalToPen();
+                ROZooMaker.addAnimalToPen(ROZoo);
                 break;
             case 4:
                 //add a baby animal to a pen

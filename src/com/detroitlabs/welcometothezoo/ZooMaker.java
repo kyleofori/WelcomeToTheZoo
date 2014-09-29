@@ -49,27 +49,27 @@ public class ZooMaker {
     }
 
     public void removePen() {
-
+        System.out.println("This function doesn't work yet.");
     }
 
     public void addAnimalToPen() {
-
+        System.out.println("This function doesn't work yet.");
     }
 
     public void addBabyAnimalToPen() {
-
+        System.out.println("This function doesn't work yet.");
     }
 
     public void removeFromPen() {
-
+        System.out.println("This function doesn't work yet.");
     }
 
     public void displayAllAnimalsInPen() {
-
+        System.out.println("This function doesn't work yet.");
     }
 
     public void displayAllAnimalsInROZ() {
-
+        System.out.println("This function doesn't work yet.");
     }
 
     //MVP: Only remove one animal or baby animal at a time.

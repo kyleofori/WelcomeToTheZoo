@@ -6,5 +6,5 @@ import java.util.ArrayList;
  * Created by kyleofori on 9/29/14.
  */
 public class Zoo {
-    ArrayList<Pen> ZooPens = new ArrayList<Pen>();
+    ArrayList<Pen> ZooPen = new ArrayList<Pen>();
 }

@@ -97,6 +97,9 @@ public class ZooMaker {
         String name = zooScanner.nextLine();
         Animal newAnimal = new Animal(12, gender, species, name);
         zoo.getAllZooPens().get(x).getZooAnimals().add(newAnimal); //I want the first empty pen
+
+        System.out.println(newAnimal.getName()+" is a "+newAnimal.getSize()+"-inch long "+newAnimal.getGender()+" "+
+                newAnimal.getSpecies()+".");
     }
 
     public void addBabyAnimalToPen(BabyAnimal newBabyAnimal) {

@@ -11,6 +11,8 @@ public class ZooDemo {
 
         Zoo ROZoo = new Zoo();
         ZooMaker ROZooMaker = new ZooMaker();
+        Pen emptyPen = new Pen();
+
 
         int selection = 0;
         do {
@@ -22,8 +24,8 @@ public class ZooDemo {
         {
         switch (selection) {
             case 1:
-                //set up new pen
-                ROZoo.getAllZooPens().add(ArrayList <Animal>);
+                //set up new pen using ROZoo as the zoo argument and initializing a pen for whatever type of animal user wants
+                ROZooMaker.setUpNewPen(ROZoo, emptyPen);
                 break;
             case 2:
                 //remove pens

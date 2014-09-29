@@ -45,9 +45,7 @@ public class ZooMaker {
         System.out.println("What species of animal will this pen hold?");
         String species = userInput.nextLine();
         zoo.getAllZooPens().add(pen);
-        System.out.println("You now have a pen that can hold animals of the species "+species+", either full-grown or baby.");
-
-
+        System.out.println("You now have a new pen!");
     }
 
     public void removePen() {

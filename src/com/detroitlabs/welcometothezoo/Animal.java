@@ -9,7 +9,7 @@ public class Animal {
     private String species;
     private String name;
 
-    public Animal(double size, String gender, String species) {
+    public Animal(double size, String gender, String species, String name) {
         this.size = size;
         this.gender = gender;
         this.species = species;

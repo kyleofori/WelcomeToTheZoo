@@ -12,7 +12,15 @@ public class Zoo {
         AllZooPens = allZooPens;
     } //These names may be confusing because they only differ by capitalization.
 
-    public static ArrayList<Pen> getAllZooPens() {
+    public ArrayList<Pen> getAllZooPens() {
         return AllZooPens; //I feel like I'm using static incorrectly.
+    }
+
+    public void addPenToZoo(Pen newPen) {
+        AllZooPens.add(newPen);
+    }
+
+    public void removePenFromZoo(int unwantedPenNumber) {
+        AllZooPens.remove(unwantedPenNumber);
     }
 }

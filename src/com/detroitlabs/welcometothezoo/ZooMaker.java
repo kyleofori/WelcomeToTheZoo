@@ -40,12 +40,13 @@ public class ZooMaker {
         return taskType;
     }
 
-    public void setUpNewPen() {
+    public void setUpNewPen(Zoo zoo, Pen pen) {
         Scanner userInput = new Scanner(System.in);
         System.out.println("What species of animal will this pen hold?");
         String species = userInput.nextLine();
+        zoo.getAllZooPens().add(pen);
         System.out.println("You now have a pen that can hold animals of the species "+species+", either full-grown or baby.");
-        Zoo.getAllZooPens().add()
+
 
     }
 

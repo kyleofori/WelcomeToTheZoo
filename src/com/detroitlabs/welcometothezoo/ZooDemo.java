@@ -1,5 +1,6 @@
 package com.detroitlabs.welcometothezoo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -22,6 +23,7 @@ public class ZooDemo {
         switch (selection) {
             case 1:
                 //set up new pen
+                ROZoo.getAllZooPens().add(ArrayList <Animal>);
                 break;
             case 2:
                 //remove pens

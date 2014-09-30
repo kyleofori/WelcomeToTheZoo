@@ -74,70 +74,69 @@ public class ZooMaker {
         String gender = zooScanner.nextLine();
         System.out.println("Finally, what's this creature's name?");
         String name = zooScanner.nextLine();
-        Animal newAnimal = new Animal(size, gender, species, name);
+        System.out.println("Now, is this a big animal (press 0) or a baby animal (press 1)?");
+        int babyCheck = getIntegerInRange(0, 1);
+        Animal newAnimal;
+        if (babyCheck == 0) {
+            newAnimal = new Animal(size, gender, species, name);
+
+        }
+        else
+        {
+            System.out.println("How cute is this little creature on a scale from 1 to 10?");
+            int cuteness = getIntegerInRange(1, 10);
+            newAnimal = new BabyAnimal(size, gender, species, name, cuteness);
+
+        }
         putAnimalInRightPen(newAnimal, zoo);
         displayAnimalInfo(newAnimal);
-    }
 
-
-    public void addBabyAnimalToPen(Zoo zoo) {
-        //same assumptions as for addAnimalToPen
-        Scanner zooScanner = new Scanner(System.in);
-        System.out.println("What species is this new little animal?");
-        String species = zooScanner.nextLine();
-        System.out.println("How big is this new little animal? (Please use inches.)");
-        double size = getASize();
-        System.out.println("What gender is this new little animal?");
-        String gender = zooScanner.nextLine();
-        System.out.println("Finally, what's this little creature's name?");
-        String name = zooScanner.nextLine();
-        System.out.println("How cute is this little creature on a scale from 1 to 10?");
-        int cuteness = getIntegerInRange(1, 10);
-        BabyAnimal newBabyAnimal = new BabyAnimal(size, gender, species, name, cuteness);
-        putBabyAnimalInRightPen(newBabyAnimal, zoo);
-        displayAnimalInfo(newBabyAnimal);
     }
 
     public void putAnimalInRightPen(Animal animal, Zoo zoo) {
+
+        boolean animalPenned = false;
         for (Pen x : zoo.getAllZooPens()) {
             if (animal.getSpecies().equalsIgnoreCase(x.getPenName())) {
-                x.getZooAnimals().add(animal);
-            } else if (x == null) {
-                x.setPenName(animal.getName());
-                x.getZooAnimals().add(animal);
+                addAnimalToPen(animal, x);
+                animalPenned = true;
                 break;
             }
         }
-    }
-
-
-    public void putBabyAnimalInRightPen(BabyAnimal babyAnimal, Zoo zoo) {
-        for (Pen x : zoo.getAllZooPens()) {
-            if (babyAnimal.getSpecies().equalsIgnoreCase(x.getPenName())) {
-                x.getZooAnimals().add(babyAnimal);
-            } else if (x == null) {
-                x.setPenName(babyAnimal.getName());
-                x.getZooAnimals().add(babyAnimal);
-                break;
+        if (!animalPenned) {
+            Pen newPen = new Pen(animal.getSpecies());
+            addAnimalToPen(animal, newPen);
+            zoo.addPenToZoo(newPen);
             }
         }
+
+    private void addAnimalToPen(Animal animal, Pen newPen) {
+        if (animal instanceof BabyAnimal) {
+            newPen.getBabyZooAnimals().add((BabyAnimal) animal);
+        } else
+        {
+            newPen.getZooAnimals().add(animal);
+        }
     }
+
 
     //Do I really need two of these?
-    public void removeAnimalFromPen(Zoo zoo, Animal animal) {
+    public void removeAnimalFromPen(Zoo zoo) {
         Scanner removeScanner = new Scanner(System.in);
-        System.out.println("Are you sure you want to remove " + animal.getName() + " from the Zoo?"
+        Animal foundAnimal;
+        foundAnimal = chooseAnAnimal(zoo);
+        System.out.println("Are you sure you want to remove " + foundAnimal.getName() + " from the Zoo?"
                 + "Please type 'Yes' if you are sure; otherwise, you will be taken back to the main menu.");
         String temp = (removeScanner.nextLine()).toLowerCase();
         if (temp.equals("yes"))
         {
-            Pen penToRemove = null;
-            for (Pen x : zoo.getAllZooPens()) {
-                if (animal.getSpecies().equalsIgnoreCase(x.getPenName())) {
-                    penToRemove = x;
-                }
-            }
-            penToRemove.getZooAnimals().remove(animal);
+//            for (Pen x : zoo.getAllZooPens()) {
+//                if (foundAnimal.getName().equalsIgnoreCase(x.getPenName())) {
+//                    Pen penToRemove = x;
+//                    break;
+//                }
+//            }
+            zoo.getAllZooPens().remove(foundAnimal);
         }
         else
         {
@@ -145,6 +144,22 @@ public class ZooMaker {
         }
     }
 
+    public Pen chooseAPen(Zoo zoo) { //maybe will return Animal
+        System.out.println("Which pen would you like to go to?");
+
+        int choice = getIntegerInRange(1, zoo.getAllZooPens().size());
+        //make an array list containing all animals in pen
+        ////oh wait--I don't need to, because the animals in the pen are already
+        //in an array list!
+        ///so I can choose by doing
+        return zoo.getAllZooPens().get(choice-1);
+    }
+
+    public Animal chooseAnAnimal(Zoo zoo) { //maybe will return Animal
+        System.out.println("Which animal do you want to take out?");
+        int choice = getIntegerInRange(1, chooseAPen(zoo).getZooAnimals().size());
+        return chooseAPen(zoo).getZooAnimals().get(choice-1);
+    }
 
     public void removeBabyAnimalFromPen(Zoo zoo, BabyAnimal babyAnimal) {
         Scanner removeScanner = new Scanner(System.in);
@@ -182,15 +197,7 @@ public class ZooMaker {
         return count;
     }
 
-    public Pen chooseAPen(Zoo zoo) { //maybe will return Animal
-        System.out.println("Which pen would you like to go to?");
-        int choice = getIntegerInRange(1, displayAllPens(zoo));
-        //make an array list containing all animals in pen
-        ////oh wait--I don't need to, because the animals in the pen are already
-        //in an array list!
-        ///so I can choose by doing
-        return zoo.getAllZooPens().get(choice-1);
-    }
+
 
     public void displayAllAnimalsInPen() {
         //select a pen first

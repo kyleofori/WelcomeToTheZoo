@@ -7,10 +7,10 @@ import java.util.Scanner;
  * Created by kyleofori on 9/29/14.
  */
 public class ZooDemo {
-    public static void main(String[] args) {
 
-        Zoo ROZoo = new Zoo();
-        ZooMaker ROZooMaker = new ZooMaker();
+    public static void main(String[] args) {
+        Zoo zoo = new Zoo();
+        ZooMaker zooMaker = new ZooMaker();
 
         int selection = 0;
         System.out.println("Welcome to the Royal Oak Zoo!");
@@ -20,39 +20,41 @@ public class ZooDemo {
 
         do
         {
-            ROZooMaker.showZooMenu();
-            selection = ROZooMaker.getIntegerInRange(1, 8);
+            zooMaker.showZooMenu();
+            selection = zooMaker.getIntegerInRange(1, 8);
         } while (selection == 0);
 
 
         switch (selection) {
             case 1:
                 //set up new pen using ROZoo as the zoo argument and initializing a pen for whatever type of animal user wants
-                ROZooMaker.setUpNewPen(ROZoo);
+                zooMaker.setUpNewPen(zoo);
                 break;
             case 2:
                 //remove pens
-                ROZooMaker.removePen();
+                zooMaker.removePen();
                 break;
             case 3:
                 //add an animal to a pen
-                ROZooMaker.addAnimalToPen(ROZoo);
+                zooMaker.addAnimalToPen(zoo);
                 break;
             case 4:
                 //add a baby animal to a pen
-                ROZooMaker.addBabyAnimalToPen(ROZoo);
+                zooMaker.addAnimalToPen(zoo);
                 break;
             case 5:
                 //remove animals and baby animals from pens
-                ROZooMaker.removeFromPen();
+                //ROZooMaker.removeAnimalFromPen(ROZoo, );
+                zooMaker.displayAllPens(zoo);
+                zooMaker.chooseAPen(zoo);
                 break;
             case 6:
                 //display all animals in a pen
-                ROZooMaker.displayAllAnimalsInPen();
+                zooMaker.displayAllAnimalsInPen();
                 break;
             case 7:
                 //display all animals in the zoo
-                ROZooMaker.displayAllAnimalsInROZ();
+                zooMaker.displayAllAnimalsInROZ();
                 break;
             case 8:
                 //leave the ROZ
@@ -61,7 +63,7 @@ public class ZooDemo {
         }
         while (selection != 8);
 
-        ROZooMaker.sayGoodbye();
+        zooMaker.sayGoodbye();
 
 //        Write a program that allows the zookeeper to:
 //        1.) Set up new Pens

@@ -77,8 +77,7 @@ public class ZooMaker {
         Animal newAnimal = new Animal(size, gender, species, name);
         putAnimalInRightPen(newAnimal, zoo);
         displayAnimalInfo(newAnimal);
-        }
-
+    }
 
 
     public void addBabyAnimalToPen(Zoo zoo) {
@@ -100,26 +99,23 @@ public class ZooMaker {
     }
 
     public void putAnimalInRightPen(Animal animal, Zoo zoo) {
-        for(Pen x: zoo.getAllZooPens()) {
-            if(animal.getSpecies().equalsIgnoreCase(x.getPenName())) {
+        for (Pen x : zoo.getAllZooPens()) {
+            if (animal.getSpecies().equalsIgnoreCase(x.getPenName())) {
                 x.getZooAnimals().add(animal);
-            }
-            else if(x == null)
-            {
+            } else if (x == null) {
                 x.setPenName(animal.getName());
                 x.getZooAnimals().add(animal);
                 break;
             }
-            }
         }
+    }
 
 
     public void putBabyAnimalInRightPen(BabyAnimal babyAnimal, Zoo zoo) {
-        for(Pen x: zoo.getAllZooPens()) {
-            if(babyAnimal.getSpecies().equalsIgnoreCase(x.getPenName())) {
+        for (Pen x : zoo.getAllZooPens()) {
+            if (babyAnimal.getSpecies().equalsIgnoreCase(x.getPenName())) {
                 x.getZooAnimals().add(babyAnimal);
-            }  else if (x == null)
-            {
+            } else if (x == null) {
                 x.setPenName(babyAnimal.getName());
                 x.getZooAnimals().add(babyAnimal);
                 break;
@@ -127,12 +123,28 @@ public class ZooMaker {
         }
     }
 
-    public void removeFromPen() {
+    public void removeFromPen(Zoo zoo, Animal animal) {
         System.out.println("This function doesn't work yet.");
-        //select type of animal (leads to pen), then animal from within ROZoo
-        //ask "do you want to remove this creature"
-        //use the getIntInRange: 1 to remove, 0 to not
+        Scanner removeScanner = new Scanner(System.in);
+        System.out.println("Are you sure you want to remove " + animal.getName() + " from the Zoo?"
+                + "Please type 'Yes' if you are sure; otherwise, you will be taken back to the main menu.");
+        String temp = (removeScanner.nextLine()).toLowerCase();
+        if (temp.equals("yes"))
+        {
+            Pen penToRemove = null;
+            for (Pen x : zoo.getAllZooPens()) {
+                if (animal.getSpecies().equalsIgnoreCase(x.getPenName())) {
+                    penToRemove = x;
+                }
+            }
+            penToRemove.getZooAnimals().remove(animal);
+        }
+        else
+        {
+            showZooMenu();
+        }
     }
+
 
     public int displayAllPens(Zoo zoo) {
         int count = 0;

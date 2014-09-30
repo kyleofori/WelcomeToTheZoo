@@ -42,9 +42,11 @@ public class ZooMaker {
 
     public void setUpNewPen(Zoo zoo) {
         Pen emptyPen = new Pen("nothing so far");
+        Scanner penNameScanner = new Scanner(System.in);
 
         zoo.getAllZooPens().add(emptyPen);
-        System.out.println("You now have a new pen!\n");
+        System.out.println("You now have a new pen!\nWhat animal will it hold?");
+        emptyPen.setPenName(penNameScanner.nextLine());
         int count = 0;
         for (Pen x : zoo.getAllZooPens()) {
             if (x != null)
@@ -130,6 +132,27 @@ public class ZooMaker {
         //select type of animal (leads to pen), then animal from within ROZoo
         //ask "do you want to remove this creature"
         //use the getIntInRange: 1 to remove, 0 to not
+    }
+
+    public int displayAllPens(Zoo zoo) {
+        int count = 0;
+        System.out.println("Here are all the pens in the Royal Oak Zoo.");
+        for (Pen x: zoo.getAllZooPens()) {
+            if(x != null) {
+                count++;
+                System.out.print(count + "- ");
+                System.out.println(x.getPenName());
+            }
+        }
+        if (count == 0)
+            System.out.println("There are no pens in this Zoo!");
+        return count;
+    }
+
+    public Animal chooseAPen(Zoo zoo) {
+        System.out.println("Which pen would you like to go to?");
+        int choice = getIntegerInRange(1, displayAllPens(zoo));
+
     }
 
     public void displayAllAnimalsInPen() {

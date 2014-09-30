@@ -73,13 +73,7 @@ public class ZooMaker {
         System.out.println("Finally, what's this creature's name?");
         String name = zooScanner.nextLine();
         Animal newAnimal = new Animal(size, gender, species, name);
-        for (Pen x: zoo.getAllZooPens())
-        if (x == null)
-        {
-        x.setPenName(name);
-        x.getZooAnimals().add(newAnimal);
-            break;
-        }
+        putAnimalInRightPen(newAnimal, zoo);
         displayAnimalInfo(newAnimal);
         }
 
@@ -98,15 +92,37 @@ public class ZooMaker {
         String name = zooScanner.nextLine();
         System.out.println("How cute is this little creature on a scale from 1 to 10?");
         int cuteness = getIntegerInRange(1, 10);
-        Animal newBabyAnimal = new BabyAnimal(size, gender, species, name, cuteness);
-        for (Pen x: zoo.getAllZooPens())
-            if (x == null)
+        BabyAnimal newBabyAnimal = new BabyAnimal(size, gender, species, name, cuteness);
+        putBabyAnimalInRightPen(newBabyAnimal, zoo);
+        displayAnimalInfo(newBabyAnimal);
+    }
+
+    public void putAnimalInRightPen(Animal animal, Zoo zoo) {
+        for(Pen x: zoo.getAllZooPens()) {
+            if(animal.getSpecies().equalsIgnoreCase(x.getPenName())) {
+                x.getZooAnimals().add(animal);
+            }
+            else if(x == null)
             {
-                x.setPenName(name);
-                x.getZooAnimals().add(newBabyAnimal);
+                x.setPenName(animal.getName());
+                x.getZooAnimals().add(animal);
                 break;
             }
-        displayAnimalInfo(newBabyAnimal);
+            }
+        }
+
+
+    public void putBabyAnimalInRightPen(BabyAnimal babyAnimal, Zoo zoo) {
+        for(Pen x: zoo.getAllZooPens()) {
+            if(babyAnimal.getSpecies().equalsIgnoreCase(x.getPenName())) {
+                x.getZooAnimals().add(babyAnimal);
+            }  else if (x == null)
+            {
+                x.setPenName(babyAnimal.getName());
+                x.getZooAnimals().add(babyAnimal);
+                break;
+            }
+        }
     }
 
     public void removeFromPen() {

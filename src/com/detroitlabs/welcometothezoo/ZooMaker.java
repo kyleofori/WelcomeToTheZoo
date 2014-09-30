@@ -123,8 +123,8 @@ public class ZooMaker {
         }
     }
 
-    public void removeFromPen(Zoo zoo, Animal animal) {
-        System.out.println("This function doesn't work yet.");
+    //Do I really need two of these?
+    public void removeAnimalFromPen(Zoo zoo, Animal animal) {
         Scanner removeScanner = new Scanner(System.in);
         System.out.println("Are you sure you want to remove " + animal.getName() + " from the Zoo?"
                 + "Please type 'Yes' if you are sure; otherwise, you will be taken back to the main menu.");
@@ -146,6 +146,27 @@ public class ZooMaker {
     }
 
 
+    public void removeBabyAnimalFromPen(Zoo zoo, BabyAnimal babyAnimal) {
+        Scanner removeScanner = new Scanner(System.in);
+        System.out.println("Are you sure you want to remove " + babyAnimal.getName() + " from the Zoo?"
+                + "Please type 'Yes' if you are sure; otherwise, you will be taken back to the main menu.");
+        String temp = (removeScanner.nextLine()).toLowerCase();
+        if (temp.equals("yes"))
+        {
+            Pen penToRemove = null;
+            for (Pen x : zoo.getAllZooPens()) {
+                if (babyAnimal.getSpecies().equalsIgnoreCase(x.getPenName())) {
+                    penToRemove = x;
+                }
+            }
+            penToRemove.getZooAnimals().remove(babyAnimal);
+        }
+        else
+        {
+            showZooMenu();
+        }
+    }
+
     public int displayAllPens(Zoo zoo) {
         int count = 0;
         System.out.println("Here are all the pens in the Royal Oak Zoo.");
@@ -161,10 +182,14 @@ public class ZooMaker {
         return count;
     }
 
-    public Animal chooseAPen(Zoo zoo) {
+    public Pen chooseAPen(Zoo zoo) { //maybe will return Animal
         System.out.println("Which pen would you like to go to?");
         int choice = getIntegerInRange(1, displayAllPens(zoo));
-
+        //make an array list containing all animals in pen
+        ////oh wait--I don't need to, because the animals in the pen are already
+        //in an array list!
+        ///so I can choose by doing
+        return zoo.getAllZooPens().get(choice-1);
     }
 
     public void displayAllAnimalsInPen() {

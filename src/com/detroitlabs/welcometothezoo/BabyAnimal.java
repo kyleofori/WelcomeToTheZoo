@@ -8,18 +8,18 @@ public class BabyAnimal extends Animal {
     private String gender;
     private String species;
     private String name;
-    private String cuteness;
+    private int cuteness;
 
-    public BabyAnimal(double size, String gender, String species, String name, String cuteness) {
+    public BabyAnimal(double size, String gender, String species, String name, int cuteness) {
         super(size, gender, species, name);
         this.cuteness = cuteness;
     }
 
-    public void setCuteness(String cuteness) {
+    public void setCuteness(int cuteness) {
         this.cuteness = cuteness;
     }
 
-    public String getCuteness() {
+    public int getCuteness() {
         return cuteness;
     }
 }

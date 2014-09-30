@@ -29,4 +29,12 @@ public class Pen {
     public ArrayList<BabyAnimal> getBabyZooAnimals() {
         return BabyZooAnimals;
     }
+
+    public void setPenName(String penName) {
+        this.penName = penName;
+    }
+
+    public String getPenName() {
+        return penName;
+    }
 }

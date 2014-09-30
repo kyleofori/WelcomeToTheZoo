@@ -64,30 +64,49 @@ public class ZooMaker {
     public void addAnimalToPen(Zoo zoo) {
         //Assume first that this is animal does not yet exist in the zoo
         Scanner zooScanner = new Scanner(System.in);
+        System.out.println("What species is this new animal?");
+        String species = zooScanner.nextLine();
         System.out.println("How big is this new animal? (Please use inches.)");
         double size = getASize();
         System.out.println("What gender is this new animal?");
         String gender = zooScanner.nextLine();
-        System.out.println("What species is this new animal?");
-        String species = zooScanner.nextLine();
         System.out.println("Finally, what's this creature's name?");
         String name = zooScanner.nextLine();
         Animal newAnimal = new Animal(size, gender, species, name);
-        zoo.getAllZooPens().get(x).getZooAnimals().add(newAnimal); //I want the first empty pen
-
+        for (Pen x: zoo.getAllZooPens())
+        if (x == null)
+        {
+        x.setPenName(name);
+        x.getZooAnimals().add(newAnimal);
+            break;
+        }
         displayAnimalInfo(newAnimal);
-
-        ArrayList<Pen> lezoo = zoo.getAllZooPens();
-        Pen theOnlyPenThusFar = lezoo.get(0);
-        for (Animal a : theOnlyPenThusFar.getZooAnimals()) {
-            System.out.println(name);
         }
 
-    }
 
-    public void addBabyAnimalToPen(BabyAnimal newBabyAnimal) {
+
+    public void addBabyAnimalToPen(Zoo zoo) {
         //same assumptions as for addAnimalToPen
-        System.out.println("This function doesn't work yet.");
+        Scanner zooScanner = new Scanner(System.in);
+        System.out.println("What species is this new little animal?");
+        String species = zooScanner.nextLine();
+        System.out.println("How big is this new little animal? (Please use inches.)");
+        double size = getASize();
+        System.out.println("What gender is this new little animal?");
+        String gender = zooScanner.nextLine();
+        System.out.println("Finally, what's this little creature's name?");
+        String name = zooScanner.nextLine();
+        System.out.println("How cute is this little creature on a scale from 1 to 10?");
+        int cuteness = getIntegerInRange(1, 10);
+        Animal newBabyAnimal = new BabyAnimal(size, gender, species, name, cuteness);
+        for (Pen x: zoo.getAllZooPens())
+            if (x == null)
+            {
+                x.setPenName(name);
+                x.getZooAnimals().add(newBabyAnimal);
+                break;
+            }
+        displayAnimalInfo(newBabyAnimal);
     }
 
     public void removeFromPen() {

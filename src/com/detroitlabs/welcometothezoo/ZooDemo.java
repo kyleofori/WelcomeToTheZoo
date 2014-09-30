@@ -40,7 +40,7 @@ public class ZooDemo {
                 break;
             case 4:
                 //add a baby animal to a pen
-//                ROZooMaker.addBabyAnimalToPen();
+                ROZooMaker.addBabyAnimalToPen(ROZoo);
                 break;
             case 5:
                 //remove animals and baby animals from pens

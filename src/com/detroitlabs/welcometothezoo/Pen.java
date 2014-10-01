@@ -7,27 +7,29 @@ import java.util.ArrayList;
  */
 public class Pen {
     private String penName;
-    private ArrayList<Animal> ZooAnimals;
-    private ArrayList<BabyAnimal> BabyZooAnimals;
+    private ArrayList<Animal> zooAnimals;
+    private ArrayList<BabyAnimal> babyZooAnimals;
 
-    public Pen(String penName) {
+    public Pen(String penName, ArrayList<Animal> zooAnimals, ArrayList<BabyAnimal> babyZooAnimals) {
         this.penName = penName;
+        this.zooAnimals = zooAnimals;
+        this.babyZooAnimals = babyZooAnimals;
     }
 
     public void setZooAnimals(ArrayList<Animal> zooAnimals) {
-        ZooAnimals = zooAnimals;
+        this.zooAnimals = zooAnimals;
     }
 
     public ArrayList<Animal> getZooAnimals() {
-        return ZooAnimals;
+        return zooAnimals;
     }
 
     public void setBabyZooAnimals(ArrayList<BabyAnimal> babyZooAnimals) {
-        BabyZooAnimals = babyZooAnimals;
+        this.babyZooAnimals = babyZooAnimals;
     }
 
     public ArrayList<BabyAnimal> getBabyZooAnimals() {
-        return BabyZooAnimals;
+        return babyZooAnimals;
     }
 
     public void setPenName(String penName) {

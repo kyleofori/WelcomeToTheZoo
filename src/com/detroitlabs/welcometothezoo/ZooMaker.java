@@ -41,11 +41,13 @@ public class ZooMaker {
     }
 
     public void setUpNewPen(Zoo zoo) {
-        Pen emptyPen = new Pen("nothing so far");
+        ArrayList<Animal> zooAnimals = new ArrayList<Animal>();
+        ArrayList<BabyAnimal> babyZooAnimals = new ArrayList<BabyAnimal>();
+        Pen emptyPen = new Pen("nothing so far", zooAnimals, babyZooAnimals);
         Scanner penNameScanner = new Scanner(System.in);
 
         zoo.getAllZooPens().add(emptyPen);
-        System.out.println("You now have a new pen!\nWhat animal will it hold?");
+        System.out.println("You now have a new pen!\nWhat animal will it hold?"); //Array lists will still be empty.
         emptyPen.setPenName(penNameScanner.nextLine());
         int count = 0;
         for (Pen x : zoo.getAllZooPens()) {
@@ -100,22 +102,31 @@ public class ZooMaker {
             if (animal.getSpecies().equalsIgnoreCase(x.getPenName())) {
                 addAnimalToPen(animal, x);
                 animalPenned = true;
+                System.out.println("This animal will be joining a family!");
                 break;
             }
         }
         if (!animalPenned) {
-            Pen newPen = new Pen(animal.getSpecies());
+            ArrayList<Animal> zooAnimals = new ArrayList<Animal>();
+            ArrayList<BabyAnimal> babyZooAnimals = new ArrayList<BabyAnimal>();
+            Pen newPen = new Pen(animal.getSpecies(), zooAnimals, babyZooAnimals);
             addAnimalToPen(animal, newPen);
             zoo.addPenToZoo(newPen);
             }
         }
 
-    private void addAnimalToPen(Animal animal, Pen newPen) {
+    public void addAnimalToPen(Animal animal, Pen pen) {
         if (animal instanceof BabyAnimal) {
-            newPen.getBabyZooAnimals().add((BabyAnimal) animal);
+            ArrayList<BabyAnimal> babyZooAnimals = pen.getBabyZooAnimals();
+            babyZooAnimals.add((BabyAnimal) animal);
         } else
         {
-            newPen.getZooAnimals().add(animal);
+            System.out.println(animal.getName());
+            System.out.println(animal.getGender());
+            System.out.println(animal.getSize());
+            System.out.println(animal.getSpecies());
+            ArrayList<Animal> zooAnimals = pen.getZooAnimals();
+            zooAnimals.add(animal);
         }
     }
 

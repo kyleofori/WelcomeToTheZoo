@@ -76,8 +76,7 @@ public class ZooMaker {
         String gender = zooScanner.nextLine();
         System.out.println("Finally, what's this creature's name?");
         String name = zooScanner.nextLine();
-        System.out.println("Now, is this a big animal (press 0) or a baby animal (press 1)?");
-        int babyCheck = getIntegerInRange(0, 1);
+        int babyCheck = checkIfBaby();
         Animal newAnimal;
         if (babyCheck == 0) {
             newAnimal = new Animal(size, gender, species, name);
@@ -93,6 +92,11 @@ public class ZooMaker {
         putAnimalInRightPen(newAnimal, zoo);
         displayAnimalInfo(newAnimal);
 
+    }
+
+    public int checkIfBaby() {
+        System.out.println("Now, is this a big animal (press 0) or a baby animal (press 1)?");
+        return getIntegerInRange(0, 1);
     }
 
     public void putAnimalInRightPen(Animal animal, Zoo zoo) {
@@ -132,22 +136,30 @@ public class ZooMaker {
 
 
     //Do I really need two of these?
-    public void removeAnimalFromPen(Zoo zoo) {
+    public void removeAnimalFromPen(Pen pen) {
         Scanner removeScanner = new Scanner(System.in);
         Animal foundAnimal;
-        foundAnimal = chooseAnAnimal(zoo);
+        foundAnimal = chooseAnAnimal(pen);
         System.out.println("Are you sure you want to remove " + foundAnimal.getName() + " from the Zoo?"
                 + "Please type 'Yes' if you are sure; otherwise, you will be taken back to the main menu.");
         String temp = (removeScanner.nextLine()).toLowerCase();
         if (temp.equals("yes"))
+            //here's where we need to sort out if it's a baby animal or an animal that we're removing
         {
+            int babyCheck = checkIfBaby();
+            if(babyCheck == 0) {
+                pen.getZooAnimals().remove(foundAnimal);
+            }
+            else
+            {
+                pen.getBabyZooAnimals().remove(foundAnimal); //take out of baby pen
+            }
 //            for (Pen x : zoo.getAllZooPens()) {
 //                if (foundAnimal.getName().equalsIgnoreCase(x.getPenName())) {
 //                    Pen penToRemove = x;
 //                    break;
 //                }
 //            }
-            zoo.getAllZooPens().remove(foundAnimal);
         }
         else
         {
@@ -166,10 +178,10 @@ public class ZooMaker {
         return zoo.getAllZooPens().get(choice-1);
     }
 
-    public Animal chooseAnAnimal(Zoo zoo) { //maybe will return Animal
+    public Animal chooseAnAnimal(Pen pen) {
         System.out.println("Which animal do you want to take out?");
-        int choice = getIntegerInRange(1, chooseAPen(zoo).getZooAnimals().size());
-        return chooseAPen(zoo).getZooAnimals().get(choice-1);
+        int choice = getIntegerInRange(1, pen.getZooAnimals().size());
+        return pen.getZooAnimals().get(choice-1);
     }
 
     public void removeBabyAnimalFromPen(Zoo zoo, BabyAnimal babyAnimal) {
@@ -210,10 +222,18 @@ public class ZooMaker {
 
 
 
-    public void displayAllAnimalsInPen() {
+    public void displayAllAnimalsInPen(Pen pen) {
         //select a pen first
         //list each animal with a number. I might have to give these animals names for this to work.
-        System.out.println("This function doesn't work yet.");
+        //need a for loop
+        System.out.println("Full grown animals: ");
+        for(Animal x: pen.getZooAnimals()) {
+            System.out.println(x.getName()+": "+x.getSize()+" inches, "+x.getGender());
+        }
+        System.out.println("Baby animals: ");
+        for(BabyAnimal x: pen.getBabyZooAnimals()) {
+            System.out.println(x.getName()+": "+x.getSize()+" inches, "+x.getGender()+". How cute? "+x.getCuteness()+"!");
+        }
     }
 
     public void displayAllAnimalsInROZ() {

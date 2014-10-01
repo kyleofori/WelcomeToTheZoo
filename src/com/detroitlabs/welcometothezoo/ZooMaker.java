@@ -227,12 +227,22 @@ public class ZooMaker {
         //list each animal with a number. I might have to give these animals names for this to work.
         //need a for loop
         System.out.println("Full grown animals: ");
+        int countAnimals = 0;
         for(Animal x: pen.getZooAnimals()) {
-            System.out.println(x.getName()+": "+x.getSize()+" inches, "+x.getGender());
+            //code smell...
+            if (x != null) {
+                countAnimals++;
+                System.out.print(countAnimals + "- ");
+                System.out.println(x.getName() + ": " + x.getSize() + " inches, " + x.getGender());
+            }
         }
         System.out.println("Baby animals: ");
         for(BabyAnimal x: pen.getBabyZooAnimals()) {
-            System.out.println(x.getName()+": "+x.getSize()+" inches, "+x.getGender()+". How cute? "+x.getCuteness()+"!");
+            if (x != null) {
+                countAnimals++;
+                System.out.print(countAnimals + "- ");
+                System.out.println(x.getName() + ": " + x.getSize() + " inches, " + x.getGender() + ". How cute? " + x.getCuteness() + "!");
+            }
         }
     }
 

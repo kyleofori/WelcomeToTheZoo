@@ -32,7 +32,11 @@ public class ZooDemo {
                 break;
             case 2:
                 //remove pens
-                zooMaker.removePen();
+//                zooMaker.removePen();
+                zooMaker.displayAllPens(zoo);
+                Pen penChosen2 = zooMaker.chooseAPen(zoo);
+                zooMaker.displayAllAnimalsInPen(penChosen2);
+                zooMaker.removePen(zoo, penChosen2);
                 break;
             case 3:
                 //add an animal to a pen

@@ -61,10 +61,6 @@ public class ZooMaker {
         }
     }
 
-    public void removePen() { //this will only remove empty pens...I suppose
-        System.out.println("\n**This function doesn't work yet.*\n");
-    }
-
     public void addAnimalToPen(Zoo zoo) {
         Scanner zooScanner = new Scanner(System.in);
         System.out.println("What species is this new animal?");
@@ -129,6 +125,30 @@ public class ZooMaker {
         }
     }
 
+    public void removePen(Zoo zoo, Pen pen) {
+        Scanner removeScanner = new Scanner(System.in);
+        System.out.println("The above are the animals you will release into Royal Oak if you remove the "
+                + pen.getPenName() + " pen.\n Are you sure you want to do this?\n" +
+                "Please type 'Yes' if you are sure; otherwise, you will be taken back to the main menu.");
+        String temp = (removeScanner.nextLine()).toLowerCase();
+        if (temp.equals("yes"))
+        {
+//            //for each loop to delete each animal in GetZooAnimals
+//            System.out.println("Releasing the grown-ups...");
+//            for(Animal x: pen.getZooAnimals()) {
+//                pen.getZooAnimals().remove(x);
+//            }
+//            //same for same purpose in GetBabyZooAnimals
+//            System.out.println("Releasing the little ones...");
+//            for(BabyAnimal x: pen.getBabyZooAnimals()) {
+//                pen.getBabyZooAnimals().remove(x);
+//            }
+//            //delete the pen from the zoo
+            System.out.println("Crushing the pen walls...");
+            zoo.getAllZooPens().remove(pen);
+            System.out.println("...and that's that.");
+        }
+    }
 
     public void removeAnimalFromPen(Pen pen, Animal animal) {
         Scanner removeScanner = new Scanner(System.in);
@@ -136,7 +156,6 @@ public class ZooMaker {
                 + "Please type 'Yes' if you are sure; otherwise, you will be taken back to the main menu.");
         String temp = (removeScanner.nextLine()).toLowerCase();
         if (temp.equals("yes"))
-            //here's where we need to sort out if it's a baby animal or an animal that we're removing
         {
             if(animal instanceof BabyAnimal)
             {

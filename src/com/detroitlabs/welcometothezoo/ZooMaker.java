@@ -62,7 +62,7 @@ public class ZooMaker {
     }
 
     public void removePen() { //this will only remove empty pens...I suppose
-        System.out.println("This function doesn't work yet.");
+        System.out.println("\n**This function doesn't work yet.*\n");
     }
 
     public void addAnimalToPen(Zoo zoo) {
@@ -138,13 +138,13 @@ public class ZooMaker {
         if (temp.equals("yes"))
             //here's where we need to sort out if it's a baby animal or an animal that we're removing
         {
-            int babyCheck = checkIfBaby();
-            if(babyCheck == 0) {
-                pen.getZooAnimals().remove(animal);
+            if(animal instanceof BabyAnimal)
+            {
+                pen.getBabyZooAnimals().remove(animal); //take out of baby part of pen
             }
             else
             {
-                pen.getBabyZooAnimals().remove(animal); //take out of baby pen
+                pen.getZooAnimals().remove(animal);
             }
         }
     }

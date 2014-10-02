@@ -46,14 +46,16 @@ public class ZooDemo {
                 //remove animals and baby animals from pens
                 //ROZooMaker.removeAnimalFromPen(ROZoo, );
                 zooMaker.displayAllPens(zoo);
-                Pen penChosen = zooMaker.chooseAPen(zoo);
-                zooMaker.displayAllAnimalsInPen(penChosen);
-                Animal animalToDelete = zooMaker.chooseAnAnimal(penChosen);
-                zooMaker.removeAnimalFromPen(penChosen, animalToDelete);
+                Pen penChosen5 = zooMaker.chooseAPen(zoo);
+                zooMaker.displayAllAnimalsInPen(penChosen5);
+                Animal animalToDelete = zooMaker.chooseAnAnimal(penChosen5);
+                zooMaker.removeAnimalFromPen(penChosen5, animalToDelete);
                 break;
             case 6:
                 //display all animals in a pen
-                //zooMaker.displayAllAnimalsInPen();
+                zooMaker.displayAllPens(zoo);
+                Pen penChosen6 = zooMaker.chooseAPen(zoo);
+                zooMaker.displayAllAnimalsInPen(penChosen6);
                 break;
             case 7:
                 //display all animals in the zoo

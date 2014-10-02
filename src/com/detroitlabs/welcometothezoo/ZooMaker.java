@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class ZooMaker {
     public void showZooMenu() {
-        System.out.println("What would you like to do now?");
+        System.out.println("What would you like to do now?\n");
         System.out.println("1 - Set up new pens.");
         System.out.println("2 - Remove pens.");
         System.out.println("3 - Add an animal to a pen.");

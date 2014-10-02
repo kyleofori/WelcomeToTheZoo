@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18f3bd20-f660-48d2-98c7-a27126fd6c8d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooDemo.java" afterPath="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooDemo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooMaker.java" afterPath="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooMaker.java" />
     </list>
     <ignored path="WelcomeToTheZoo.iws" />
@@ -65,27 +66,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZooDemo.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ZooDemo.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1275">
-              <caret line="48" column="54" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.62653565" vertical-offset="585" max-vertical-offset="1305">
+              <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZooMaker.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ZooMaker.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooMaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29441625" vertical-offset="1879" max-vertical-offset="3720">
-              <caret line="137" column="23" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2655" max-vertical-offset="3720">
+              <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1586#1594#0" expanded="true" />
-                <element signature="e#1658#1670#0" expanded="true" />
-                <element signature="e#4288#4296#0" expanded="true" />
-                <element signature="e#4364#4376#0" expanded="true" />
+                <element signature="e#1588#1596#0" expanded="true" />
+                <element signature="e#1660#1672#0" expanded="true" />
+                <element signature="e#4290#4298#0" expanded="true" />
+                <element signature="e#4366#4378#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,8 +109,8 @@
         <option value="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/Animal.java" />
         <option value="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/BabyAnimal.java" />
         <option value="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/Pen.java" />
-        <option value="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooDemo.java" />
         <option value="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooMaker.java" />
+        <option value="$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooDemo.java" />
       </list>
     </option>
   </component>
@@ -476,10 +477,10 @@
           <caret line="236" column="13" selection-start-line="236" selection-start-column="13" selection-end-line="236" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1586#1594#0" expanded="true" />
-            <element signature="e#1658#1670#0" expanded="true" />
-            <element signature="e#4288#4296#0" expanded="true" />
-            <element signature="e#4364#4376#0" expanded="true" />
+            <element signature="e#1588#1596#0" expanded="true" />
+            <element signature="e#1660#1672#0" expanded="true" />
+            <element signature="e#4290#4298#0" expanded="true" />
+            <element signature="e#4366#4378#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -524,25 +525,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooDemo.java">
+    <entry file="file://$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooMaker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1275">
-          <caret line="48" column="54" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="54" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3720">
+          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1588#1596#0" expanded="true" />
+            <element signature="e#1660#1672#0" expanded="true" />
+            <element signature="e#4290#4298#0" expanded="true" />
+            <element signature="e#4366#4378#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooMaker.java">
+    <entry file="file://$PROJECT_DIR$/src/com/detroitlabs/welcometothezoo/ZooDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29441625" vertical-offset="1879" max-vertical-offset="3720">
-          <caret line="137" column="23" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1586#1594#0" expanded="true" />
-            <element signature="e#1658#1670#0" expanded="true" />
-            <element signature="e#4288#4296#0" expanded="true" />
-            <element signature="e#4364#4376#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.62653565" vertical-offset="585" max-vertical-offset="1305">
+          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

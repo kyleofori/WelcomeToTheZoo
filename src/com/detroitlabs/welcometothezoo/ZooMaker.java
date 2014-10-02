@@ -12,12 +12,11 @@ public class ZooMaker {
         System.out.println("What would you like to do now?\n");
         System.out.println("1 - Set up new pens.");
         System.out.println("2 - Remove pens.");
-        System.out.println("3 - Add an animal to a pen.");
-        System.out.println("4 - Add a baby animal to a pen.");
-        System.out.println("5 - Remove an animal or baby animal from a pen.");
-        System.out.println("6 - Display all the animals in a pen.");
-        System.out.println("7 - Display all the animals in the Royal Oak Zoo.");
-        System.out.println("8 - Leave the ROZ.");
+        System.out.println("3 - Add an animal  or baby animal to a pen.");
+        System.out.println("4 - Remove an animal or baby animal from a pen.");
+        System.out.println("5 - Display all the animals in a pen.");
+        System.out.println("6 - Display all the animals in the Royal Oak Zoo.");
+        System.out.println("7 - Leave the ROZ.");
     }
 
     public void sayGoodbye() {
@@ -133,17 +132,6 @@ public class ZooMaker {
         String temp = (removeScanner.nextLine()).toLowerCase();
         if (temp.equals("yes"))
         {
-//            //for each loop to delete each animal in GetZooAnimals
-//            System.out.println("Releasing the grown-ups...");
-//            for(Animal x: pen.getZooAnimals()) {
-//                pen.getZooAnimals().remove(x);
-//            }
-//            //same for same purpose in GetBabyZooAnimals
-//            System.out.println("Releasing the little ones...");
-//            for(BabyAnimal x: pen.getBabyZooAnimals()) {
-//                pen.getBabyZooAnimals().remove(x);
-//            }
-//            //delete the pen from the zoo
             System.out.println("Crushing the pen walls...");
             zoo.getAllZooPens().remove(pen);
             System.out.println("...and that's that.");

@@ -43,10 +43,6 @@ public class ZooDemo {
                 zooMaker.addAnimalToPen(zoo);
                 break;
             case 4:
-                //add a baby animal to a pen
-                zooMaker.addAnimalToPen(zoo);
-                break;
-            case 5:
                 //remove animals and baby animals from pens
                 //ROZooMaker.removeAnimalFromPen(ROZoo, );
                 zooMaker.displayAllPens(zoo);
@@ -55,22 +51,22 @@ public class ZooDemo {
                 Animal animalToDelete = zooMaker.chooseAnAnimal(penChosen5);
                 zooMaker.removeAnimalFromPen(penChosen5, animalToDelete);
                 break;
-            case 6:
+            case 5:
                 //display all animals in a pen
                 zooMaker.displayAllPens(zoo);
                 Pen penChosen6 = zooMaker.chooseAPen(zoo);
                 zooMaker.displayAllAnimalsInPen(penChosen6);
                 break;
-            case 7:
+            case 6:
                 //display all animals in the zoo
                 zooMaker.displayAllAnimalsInROZ();
                 break;
-            case 8:
+            case 7:
                 //leave the ROZ
                 break;
         }
         }
-        while (selection != 8);
+        while (selection != 7);
 
         zooMaker.sayGoodbye();
 

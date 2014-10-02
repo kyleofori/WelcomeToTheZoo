@@ -66,7 +66,6 @@ public class ZooMaker {
     }
 
     public void addAnimalToPen(Zoo zoo) {
-        //Assume first that this is animal does not yet exist in the zoo
         Scanner zooScanner = new Scanner(System.in);
         System.out.println("What species is this new animal?");
         String species = zooScanner.nextLine();
@@ -125,22 +124,15 @@ public class ZooMaker {
             babyZooAnimals.add((BabyAnimal) animal);
         } else
         {
-            System.out.println(animal.getName());
-            System.out.println(animal.getGender());
-            System.out.println(animal.getSize());
-            System.out.println(animal.getSpecies());
             ArrayList<Animal> zooAnimals = pen.getZooAnimals();
             zooAnimals.add(animal);
         }
     }
 
 
-    //Do I really need two of these?
-    public void removeAnimalFromPen(Pen pen) {
+    public void removeAnimalFromPen(Pen pen, Animal animal) {
         Scanner removeScanner = new Scanner(System.in);
-        Animal foundAnimal;
-        foundAnimal = chooseAnAnimal(pen);
-        System.out.println("Are you sure you want to remove " + foundAnimal.getName() + " from the Zoo?"
+        System.out.println("Are you sure you want to remove " + animal.getName() + " from the Zoo?\n"
                 + "Please type 'Yes' if you are sure; otherwise, you will be taken back to the main menu.");
         String temp = (removeScanner.nextLine()).toLowerCase();
         if (temp.equals("yes"))
@@ -148,62 +140,36 @@ public class ZooMaker {
         {
             int babyCheck = checkIfBaby();
             if(babyCheck == 0) {
-                pen.getZooAnimals().remove(foundAnimal);
+                pen.getZooAnimals().remove(animal);
             }
             else
             {
-                pen.getBabyZooAnimals().remove(foundAnimal); //take out of baby pen
+                pen.getBabyZooAnimals().remove(animal); //take out of baby pen
             }
-//            for (Pen x : zoo.getAllZooPens()) {
-//                if (foundAnimal.getName().equalsIgnoreCase(x.getPenName())) {
-//                    Pen penToRemove = x;
-//                    break;
-//                }
-//            }
-        }
-        else
-        {
-            showZooMenu();
         }
     }
 
-    public Pen chooseAPen(Zoo zoo) { //maybe will return Animal
+    public Pen chooseAPen(Zoo zoo) {
         System.out.println("Which pen would you like to go to?");
-
         int choice = getIntegerInRange(1, zoo.getAllZooPens().size());
-        //make an array list containing all animals in pen
-        ////oh wait--I don't need to, because the animals in the pen are already
-        //in an array list!
-        ///so I can choose by doing
         return zoo.getAllZooPens().get(choice-1);
     }
 
     public Animal chooseAnAnimal(Pen pen) {
         System.out.println("Which animal do you want to take out?");
-        int choice = getIntegerInRange(1, pen.getZooAnimals().size());
-        return pen.getZooAnimals().get(choice-1);
+        int a = pen.getZooAnimals().size();
+        int b = pen.getBabyZooAnimals().size();
+        int n = a + b;
+        int choice = getIntegerInRange(1, n);
+        Animal animalToDelete;
+        if (choice <= a) {
+            animalToDelete = pen.getZooAnimals().get(choice - 1);
+        } else {
+            animalToDelete = pen.getBabyZooAnimals().get(choice - a - 1);
+        }
+        return animalToDelete;
     }
 
-    public void removeBabyAnimalFromPen(Zoo zoo, BabyAnimal babyAnimal) {
-        Scanner removeScanner = new Scanner(System.in);
-        System.out.println("Are you sure you want to remove " + babyAnimal.getName() + " from the Zoo?"
-                + "Please type 'Yes' if you are sure; otherwise, you will be taken back to the main menu.");
-        String temp = (removeScanner.nextLine()).toLowerCase();
-        if (temp.equals("yes"))
-        {
-            Pen penToRemove = null;
-            for (Pen x : zoo.getAllZooPens()) {
-                if (babyAnimal.getSpecies().equalsIgnoreCase(x.getPenName())) {
-                    penToRemove = x;
-                }
-            }
-            penToRemove.getZooAnimals().remove(babyAnimal);
-        }
-        else
-        {
-            showZooMenu();
-        }
-    }
 
     public int displayAllPens(Zoo zoo) {
         int count = 0;

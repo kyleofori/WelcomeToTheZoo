@@ -48,8 +48,8 @@ public class ZooDemo {
                 zooMaker.displayAllPens(zoo);
                 Pen penChosen = zooMaker.chooseAPen(zoo);
                 zooMaker.displayAllAnimalsInPen(penChosen);
-                zooMaker.chooseAnAnimal(penChosen);
-//                zooMaker.removeAnimalFromPen(zoo);
+                Animal animalToDelete = zooMaker.chooseAnAnimal(penChosen);
+                zooMaker.removeAnimalFromPen(penChosen, animalToDelete);
                 break;
             case 6:
                 //display all animals in a pen
